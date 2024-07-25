@@ -1,5 +1,4 @@
 import streamlit as st
-import mne
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -8,13 +7,8 @@ file = st.file_uploader('请上传EEG文件',type=['edf'])
 
 if file is not None:
     channel_name = ['EEG Fpz-Cz', 'EEG Pz-Oz']
-    raw = mne.io.read_raw_edf('./data/eeg.edf')
-    print(raw.info["ch_names"])
-    raw.pick_channels(channel_name)
-    print(raw.info)
-    # raw.filter(1,50)
-    data = np.array(raw.to_data_frame()[channel_name])
-    x0,x1 = data[:3000,0],data[:3000,1]
+    raw = np.load('data/eeg.npy')
+    x0,x1 = raw[:3000,0],raw[:3000,1]
     x0,x1 = (x0-x0.mean())/x0.std(),(x1-x1.mean())/x1.std()
     fig = plt.figure()
     t = np.linspace(0,30,3000)
