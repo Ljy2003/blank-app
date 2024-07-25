@@ -32,10 +32,10 @@ with col1:
     st.markdown('## 睡眠阶段占比')
     st.pyplot(fig)
 with col2:
-    st.markdown('### 觉醒次数：4')
-    st.markdown('### 睡眠质量分数：86')
-    st.markdown('### 睡眠潜伏期：20分钟')
-    st.markdown('### REM潜伏期：{}分钟'.format(np.where(stages==3)[0][0]/2))
+    st.markdown('觉醒次数：4')
+    st.markdown('睡眠质量分数：86')
+    st.markdown('睡眠潜伏期：20分钟')
+    st.markdown('REM潜伏期：{}分钟'.format(np.where(stages==3)[0][0]/2))
 st.markdown("## 睡眠建议")
 st.markdown('''
 - ### 中途觉醒次数过多，注意睡前不要饮酒或喝咖啡。
