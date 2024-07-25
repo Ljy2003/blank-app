@@ -3,6 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+st.write('''<style>
+[data-testid="column"] {
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+</style>''', unsafe_allow_html=True)
+
 st.header('睡眠状况分析', divider='rainbow')
 
 stages = 4-pd.read_csv('./data/stage1.csv').to_numpy()[:,0]
